@@ -1,78 +1,79 @@
 class Kurs():
-    def __init__(self, lista_odcinkow: list, kierowca: str, auto: str, czas: str, odleglosc_km: list) -> None:
+    def __init__(self, lista_odcinkow: list, kierowca: str,
+                 auto: str, czas: str, odleglosc_km: list) -> None:
         self._lista_odcinkow = lista_odcinkow
         self._kierowca = kierowca
         self._auto = auto
         self._czas = czas
         self._odleglosc_km = odleglosc_km
-        
+
     @property
     def lista_odcinkow(self):
         return self._lista_odcinkow
-    
+
     @property
     def kierowca(self):
         return self._kierowca
-    
+
     @property
     def auto(self):
         return self._auto
-    
+
     @property
     def czas(self):
         return self._czas
-    
+
     @property
     def odleglosc_km(self):
         return self._odleglosc_km
-    
+
     @lista_odcinkow.setter
     def lista_odcinkow(self, lista: list) -> None:
         self._lista_odcinkow = lista
-    
+
     @kierowca.setter
     def kierowca(self, nazwa_kierowcy: str) -> None:
         self._kierowca = nazwa_kierowcy
-        
+
     @auto.setter
     def auto(self, nazwa_auta: str) -> None:
         self._auto = nazwa_auta
-    
+
     @czas.setter
     def czas(self, nazwa_czas: str) -> None:
         self._czas = nazwa_czas
-        
-    
+
     def __str__(self) -> str:
         return f"""Lista odcinków: {self._lista_odcinkow}.\n
                 Kierowca: {self._kierowca}\n
                 Auto: {self._auto}\n
                 Lista odległości w km: {self._odleglosc_km}\n
-                Czas: {self._czas}h              
+                Czas: {self._czas}h
                 """
-                
+
     def suma_km(self) -> float:
         suma = 0
         for km in self._odleglosc_km:
             suma += km
         return round(suma, 2)
-    
+
     def marka(self) -> str:
         return self._auto
 
 
 class Pojazd():
-    def __init__(self, liczba_kol: int, marka: str, rodzaj: str, wlasciciel: str, liczba_miejsc: int) -> None:
+    def __init__(self, liczba_kol: int, marka: str, rodzaj: str,
+                 wlasciciel: str, liczba_miejsc: int) -> None:
         self._liczba_kol = liczba_kol
         self._marka = marka
         self._rodzaj = rodzaj
         self._wlasciciel = wlasciciel
         self._liczba_miejsc = liczba_miejsc
-        
+
     @property
     def liczba_kol(self):
         return self._liczba_kol
-    
+
     @property
     def marka(self):
         return self._marka
@@ -80,16 +81,15 @@ class Pojazd():
     @property
     def rodzaj(self):
         return self._rodzaj
-    
+
     @property
     def wlasciciel(self):
         return self._wlasciciel
-    
+
     @property
     def liczba_miejsc(self):
         return self._liczba_miejsc
-    
-    
+
     def __str__(self) -> str:
         return f"""Auto:\n\t
                 Liczba kół: {self._liczba_kol}\n\t
@@ -99,41 +99,44 @@ class Pojazd():
                 Liczba miejsc siedziących: {self._liczba_miejsc}
                 """
 
+
 class FirmaTransportowa():
-    def __init__(self, wlasciciel_firmy: str, powierzchnia_firmy: float, miejscowosc_firmy: str, ulica_firmy: str, kod_pocztowy_firmy: str) -> None:
+    def __init__(self, wlasciciel_firmy: str, powierzchnia_firmy: float,
+                 miejscowosc_firmy: str, ulica_firmy: str,
+                 kod_pocztowy_firmy: str) -> None:
         self._wlasciciel_firmy = wlasciciel_firmy
         self._powierzchnia_firmy = powierzchnia_firmy
         self._miejscowosc_firmy = miejscowosc_firmy
         self._ulica_firmy = ulica_firmy
         self._kod_pocztowy_firmy = kod_pocztowy_firmy
-            
+
     @property
     def wlasciciel_firmy(self):
         return self._wlasciciel_firmy
-    
+
     @property
     def powierzchnia_firmy(self):
         return self._powierzchnia_firmy
-    
+
     @property
     def miejscowosc_firmy(self):
         return self._miejscowosc_firmy
-    
+
     @property
     def ulica_firmy(self):
         return self._ulica_firmy
-    
+
     @property
     def kod_pocztowy_firmy(self):
         return self._kod_pocztowy_firmy
-    
+
     def __str__(self) -> str:
         return f"""Firma transportowa:\n\t
                     właściciel firmy: {self._wlasciciel_firmy}\n\t
                     powierzchnia firmy: {self._powierzchnia_firmy}\n\t
                     Adres firmy: ul. {self._ulica_firmy}, {self._kod_pocztowy_firmy} {self._miejscowosc_firmy}   
                 """
-    
+
 
 class Odcinek():
     def __init__(self, start: str, meta: str, odleglosc_km: float, czas_h: float, kierowca: str) -> None:
