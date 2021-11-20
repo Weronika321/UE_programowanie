@@ -3,7 +3,7 @@ class Movie:
         self._movieId = movieId
         self._title = title
         self._genres = genres
-        
+
     @property
     def movieId(self):
         return self._movieId
@@ -15,7 +15,6 @@ class Movie:
     @property
     def genres(self):
         return self._genres
-
 
     def __dict__(self):
         return {
