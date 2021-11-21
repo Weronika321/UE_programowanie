@@ -20,5 +20,5 @@ class Movie:
         return {
             "id": f"{self._movieId}",
             "title": f"{self._title}",
-            "genres": f"{self._genres}",
+            "genres": f"{self._genres.rstrip()}",
         }
