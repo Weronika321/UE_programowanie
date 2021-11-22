@@ -5,7 +5,7 @@ from functions.list_to_json import list_to_json
 from functions.read_JSON import read_JSON
 
 
-class JSON_to_API(Resource):
+class Movie_to_API(Resource):
     def get(self):
         return read_JSON(
             list_to_json(file_to_list(read_file("data/movies.csv"))[1:])
