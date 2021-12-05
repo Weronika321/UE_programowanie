@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  app:
+    image: python:3.10-alpine # python:3.10 - wolniej
+    command: sleep infinity
+    working_dir: /app
+    volumes:
+      - .:/app # z komputera :  working_dir
+        # np. home/piotr : app/data
+
+    ports:
+      - 5001:5000
+# docker-compose.yaml
+# docker-compose up -d -> uruchomienie kontenerów
+# docker-compose ps -> sprawdzenie staniu kontenerów
+# docker-compose exec app bash -> wejście do kontenera
+# docker-compose exec app /bin/sh -> wejście do kontenera jeśli -alpine
+
+# cat main.py
+
+# wget localhost:5000
