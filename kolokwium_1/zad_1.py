@@ -151,7 +151,7 @@ class FirmaTransportowa:
         return f"""Firma transportowa:\n\t
                     właściciel firmy: {self._wlasciciel_firmy}\n\t
                     powierzchnia firmy: {self._powierzchnia_firmy}\n\t
-                    Adres firmy: ul. {self._ulica_firmy}, {self._kod_pocztowy_firmy} {self._miejscowosc_firmy}   
+                    Adres firmy: ul. {self._ulica_firmy}, {self._kod_pocztowy_firmy} {self._miejscowosc_firmy}
                 """
 
 
