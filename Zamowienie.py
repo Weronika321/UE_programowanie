@@ -1,64 +1,63 @@
 class Zamowienie:
     def __init__(
         self,
-        powierzchnia_dom: str,
-        cena_dom: str,
-        cena_mieszkanie: str,
-        powierzchnia_mieszkanie: str,
+        developer: str,
+        nr_zamowienia: int,
+        nr_developera: int,
+        lista_budynkow: list,
     ) -> None:
-        self._powierzchnia_dom = powierzchnia_dom
-        self._cena_dom = cena_dom
-        self._cena_mieszkanie = cena_mieszkanie
-        self._powierzchnia_mieszkanie = powierzchnia_mieszkanie
+        self._developer = developer
+        self._nr_zamowienia = nr_zamowienia
+        self._nr_developera = nr_developera
+        self._lista_budynkow = lista_budynkow
 
     @property
-    def powierzchnia_dom(self) -> str:
-        return self._powierzchnia_dom
+    def developer(self) -> str:
+        return self._developer
 
     @property
-    def cena_dom(self) -> str:
-        return self._cena_dom
+    def nr_zamowienia(self) -> int:
+        return self._nr_zamowienia
 
     @property
-    def cena_mieszkanie(self) -> str:
-        return self._cena_mieszkanie
+    def nr_developera(self) -> int:
+        return self._nr_developera
 
     @property
-    def powierzchnia_mieszkanie(self) -> str:
-        return self._powierzchnia_mieszkanie
+    def lista_budynkow(self) -> list:
+        return self._lista_budynkow
 
-    @powierzchnia_dom.setter
-    def powierzchnia_dom(self, nazwa_powierzchnia_dom: str) -> None:
-        self._powierzchnia_dom = nazwa_powierzchnia_dom
+    @developer.setter
+    def developer(self, nazwa_developer: str) -> None:
+        self._developer = nazwa_developer
 
-    @cena_dom.setter
-    def cena_dom(self, nazwa_cena_dom: str) -> None:
-        self._cena_dom = nazwa_cena_dom
+    @nr_zamowienia.setter
+    def nr_zamowienia(self, numer: int) -> None:
+        self._nr_zamowienia = numer
 
-    @cena_mieszkanie.setter
-    def cena_powierzchnia_mieszkanie(
-        self, nazwa_cena_powierzchnia_mieszkanie: str
-    ) -> None:
-        self._cena_powierzchnia_mieszkanie = nazwa_cena_powierzchnia_mieszkanie
+    @nr_developera.setter
+    def nr_developera(self, numer: int) -> None:
+        self._nr_developera = numer
 
-    @powierzchnia_mieszkanie.setter
-    def nazwisko_cena_powierzchnia_mieszkaniea(
-        self, nazwa_powierzchnia_mieszkanie: str
-    ) -> None:
-        self._nazwisko_cena_powierzchnia_mieszkaniea = (
-            nazwa_powierzchnia_mieszkanie
-        )
+    @lista_budynkow.setter
+    def lista_budynkow(self, lista: list) -> None:
+        self._lista_budynkow = lista
 
     def cena_razem(self) -> float:
-        return round(self._cena_mieszkanie + self._cena_dom, 2)
+        suma = 0
+        for budynek in self._lista_budynkow:
+            suma += budynek._cena
+        return round(suma, 2)
 
     def powierzchnia_razem(self) -> float:
-        return self._powierzchnia_mieszkanie + self._powierzchnia_dom
+        powierzchnia = 0
+        for budynek in self._lista_budynkow:
+            powierzchnia += budynek._powierzchnia
+        return powierzchnia
 
     def __str__(self) -> str:
-        return f"""Dom: {self._powierzchnia_dom}m^2,
-{self._cena_dom}zł\n
-Mieszkanie: {self._powierzchnia_mieszkanie}m^2,
-{self._cena_mieszkanie}zł\n
-Łączny koszt: {self.cena_razem()}\n
+        return f"""Numer zamowienia: {self._nr_zamowienia}
+Numer developera: {self._nr_developera}
+Developer: {self._developer}
+Łączny koszt: {self.cena_razem()}
 Łączna powierzchnia: {self.powierzchnia_razem()}"""
