@@ -28,7 +28,7 @@ class Developer:
         return self._adres
 
     def __str__(self) -> str:
-        return f"""{self._nazwa}\n\t
+        return f"""{self._nazwa}\n
                 imie: {self._imie}\n\t
                 nazwisko: {self._nazwisko},\n\t
                 adres: {self._adres}"""
