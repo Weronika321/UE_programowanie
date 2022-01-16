@@ -57,7 +57,7 @@ class Detector:
 
     def _processVideo(self, videoName):
         cap = cv2.VideoCapture(videoName)
-        if cap.isOpened() == False:
+        if not cap.isOpened():
             print("Error opening video...")
             return
         (sucess, self._img) = cap.read()
